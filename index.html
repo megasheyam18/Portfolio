@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CozyDiadora - Product Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Allura&family=Baloo+2:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="name">
+            <h1>Mega Shyam S</h1>
+        </div>
+
+        <ul class="navlist">
+            <li><a href="#" style="text-decoration: none; color: inherit;">Home</a></li>
+            <li><a href="#mission" style="text-decoration: none; color: inherit;">Mission</a></li>
+            <!-- Assuming sections exist or will be mapped -->
+            <li><a href="#work" style="text-decoration: none; color: inherit;">Done Work</a></li>
+            <li><a href="#contact" style="text-decoration: none; color: inherit;">Contact</a></li>
+            <button class="callbutton" id="copyContactBtn">
+                <span class="text">Contact Us</span>
+                <span class="icon"><i class="fa-solid fa-copy"></i></span>
+            </button>
+        </ul>
+    </nav>
+
+    <!-- Floating Social Icons -->
+    <div class="floating-socials">
+        <a href="https://www.linkedin.com/in/megashyam/" target="_blank" class="social-btn linkedin">
+            <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://wa.me/918248627519" target="_blank" class="social-btn whatsapp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Toast Message -->
+    <div id="toast" class="toast">Phone number copied successfully</div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero container">
+        <div class="hero-content">
+            <div class="badge">● AVAILABLE FOR WORK</div>
+            <h1>Hi, I’m a<br>Frontend<br>Developer<span class="copyright">©</span></h1>
+            <p class="hero-desc">Frontend developer skilled in building responsive and user-friendly web interfaces
+                using HTML, CSS, JavaScript, Java, SQL, and MySQL. Passionate about clean UI, performance, and scalable
+                code.</p>
+            <!-- Contact button removed -->
+        </div>
+        <div class="hero-visuals">
+            <div class="profile-card">
+                <div class="profile-info">
+                    <h3>Cozydiadora</h3>
+                    <p>Jakarta, Indonesia</p>
+                    <!-- Badges removed -->
+                </div>
+                <div class="profile-image">
+                    <!-- Placeholder for profile image -->
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                        alt="Profile">
+                </div>
+                <!-- Abstract UI element overlay simulation -->
+                <div class="ui-overlay"></div>
+            </div>
+
+            <!-- Download Resume Button -->
+            <a href="assets/Final_resume.pdf" download="Mega_Shyam_Resume.pdf" class="btn-download-resume">
+                Download Resume <i class="fa-solid fa-file-arrow-down"></i>
+            </a>
+
+            <div class="social-grid">
+                <div class="skills-box">
+                    <h3>My Skills</h3>
+                    <ul class="skills-list">
+                        <li>HTML & CSS</li>
+                        <li>JavaScript</li>
+                        <li>Java</li>
+                        <li>SQL</li>
+                        <li>MySQL</li>
+                    </ul>
+                </div>
+                <!-- Social icons removed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <h2>My mission is to build clean, responsive, and high-performance web and app solutions that help
+                businesses grow, improve user experience, and turn ideas into reliable digital products.</h2>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services container">
+        <div class="section-header">
+            <h2>How Can I<br>Assist You?</h2>
+        </div>
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="icon-circle pixel-icon">👾</div>
+                <p>I design clean, modern, and user-friendly interfaces focused on usability, clarity, and
+                    responsiveness across all screen sizes.</p>
+                <div class="card-footer">
+                    <h3>UI Design</h3>
+                    <span class="number">01</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="icon-circle code-icon">⚡</div>
+                <p>I build fast, responsive, and scalable websites using HTML, CSS, and JavaScript with clean structure
+                    and performance-focused code.</p>
+                <div class="card-footer">
+                    <h3>Web Development</h3>
+                    <span class="number">02</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="icon-circle design-icon">📱</div>
+                <p>I develop simple and efficient applications with structured logic, smooth UI, and reliable data
+                    handling for real-world use.</p>
+                <div class="card-footer">
+                    <h3>App Development</h3>
+                    <span class="number">03</span>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="icon-circle brand-icon">🗄️</div>
+                <p>I work with Java, SQL, and MySQL to build secure backends, manage data, and connect frontend systems
+                    with reliable logic.</p>
+                <div class="card-footer">
+                    <h3>Backend & Database</h3>
+                    <span class="number">04</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Projects Section -->
+    <section id="work" class="projects-section container">
+        <div class="section-header" style="margin-bottom: 40px;">
+            <h2>My Projects</h2>
+        </div>
+        <div class="projects-grid-modern">
+            <!-- Card 1: Swiggy -->
+            <div class="project-card-modern" style="background-image: url('assets/swiggy_clone.png');">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <div class="project-tags-modern">
+                        <span class="tag-modern">UI Clone</span>
+                        <span class="tag-modern">Frontend</span>
+                        <span class="tag-modern">HTML</span>
+                        <span class="tag-modern">CSS</span>
+                        <span class="tag-modern">JavaScript</span>
+                    </div>
+                    <h3 class="project-title-modern">Swiggy Website Clone</h3>
+                </div>
+                <div class="card-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+
+            <!-- Card 2: Zaaroz -->
+            <div class="project-card-modern" style="background-image: url('assets/zaaroz_clone.png');">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <div class="project-tags-modern">
+                        <span class="tag-modern">UI Clone</span>
+                        <span class="tag-modern">Frontend</span>
+                        <span class="tag-modern">Responsive Design</span>
+                    </div>
+                    <h3 class="project-title-modern">Zaaroz Website Clone</h3>
+                </div>
+                <div class="card-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+
+            <!-- Card 3: Smart Scheme -->
+            <div class="project-card-modern" style="background-image: url('assets/scheme_recommender.jpg');">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <div class="project-tags-modern">
+                        <span class="tag-modern">Government Project</span>
+                        <span class="tag-modern">Web App</span>
+                        <span class="tag-modern">ML</span>
+                        <span class="tag-modern">Accessibility</span>
+                    </div>
+                    <h3 class="project-title-modern">Smart Scheme Recommender</h3>
+                </div>
+                <div class="card-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="see-more-container">
+            <a href="projects.html" class="btn btn-see-more">See More <i
+                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="timeline-section container">
+        <div class="section-header-work">
+            <h2>Experience</h2>
+            <p style="margin-top: 10px; color: #666;">A summary of my professional experience</p>
+        </div>
+
+        <div class="timeline-container">
+            <!-- Experience 1: Coreverse -->
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <div class="timeline-icon-box">
+                        <i class="fa-solid fa-laptop-code" style="color: #ff7a00;"></i>
+                    </div>
+                    <div class="timeline-line"></div>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <div class="timeline-title">
+                            <h3>Software Developer Intern <span class="timeline-badge">Coreverse</span></h3>
+                            <div class="timeline-institution">Internship</div>
+                        </div>
+                        <div class="timeline-year">Nov 2023 – Mar 2024</div>
+                    </div>
+                    <div class="timeline-body">
+                        <p>Developed DOCORE, a comprehensive school management system using Flutter and Firebase.
+                            Contributed to backend logic, robust UI design, and secure authentication workflows.</p>
+                    </div>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag"><i class="fa-brands fa-flutter"></i> Flutter</span>
+                        <span class="timeline-tag"><i class="fa-solid fa-fire"></i> Firebase</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience 2: Domain Hostly -->
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <div class="timeline-icon-box">
+                        <i class="fa-solid fa-desktop" style="color: #1e88e5;"></i>
+                    </div>
+                    <div class="timeline-line"></div>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <div class="timeline-title">
+                            <h3>GUI Developer Intern <span class="timeline-badge">Domain Hostly</span></h3>
+                            <div class="timeline-institution">Internship</div>
+                        </div>
+                        <div class="timeline-year">June 2023 – July 2023</div>
+                    </div>
+                    <div class="timeline-body">
+                        <p>Built a billing system using Python Tkinter with SQLite database integration. Utilized NumPy
+                            for complex calculation logic and efficient data processing.</p>
+                    </div>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag"><i class="fa-brands fa-python"></i> Python</span>
+                        <span class="timeline-tag"><i class="fa-solid fa-database"></i> SQLite</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="timeline-section container">
+        <div class="section-header-work">
+            <h2>Education</h2>
+            <p style="margin-top: 10px; color: #666;">A summary of my academic qualifications</p>
+        </div>
+
+        <div class="timeline-container">
+            <!-- Education 1: B.Tech -->
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <div class="timeline-icon-box">
+                        <i class="fa-solid fa-graduation-cap" style="color: #43a047;"></i>
+                    </div>
+                    <div class="timeline-line"></div>
+                </div>
+                <div class="timeline-content">
+                    <div class="card-illustration"><i class="fa-solid fa-laptop-code"></i></div>
+                    <div class="timeline-header">
+                        <div class="timeline-title">
+                            <h3>B.Tech Information Technology <span class="timeline-badge">80%</span></h3>
+                            <div class="timeline-institution">K.S. Rangasamy College of Technology</div>
+                        </div>
+                        <div class="timeline-year">2021 - 2025</div>
+                    </div>
+                    <div class="timeline-body">
+                        <p>Built a strong foundation in programming, data structures, and software development concepts.
+                            Gained practical exposure through projects and hands-on labs that strengthened
+                            problem-solving and logical thinking.</p>
+                    </div>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Programming</span>
+                        <span class="timeline-tag">Data Structures</span>
+                        <span class="timeline-tag">Software Dev</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education 2: HSC -->
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <div class="timeline-icon-box">
+                        <i class="fa-solid fa-school" style="color: #fb8c00;"></i>
+                    </div>
+                    <div class="timeline-line"></div>
+                </div>
+                <div class="timeline-content">
+                    <div class="card-illustration"><i class="fa-solid fa-atom"></i></div>
+                    <div class="timeline-header">
+                        <div class="timeline-title">
+                            <h3>HSC (12th Grade) <span class="timeline-badge">71.8%</span></h3>
+                            <div class="timeline-institution">Bharani Vidhyalaya Senior Secondary School (CBSE)</div>
+                        </div>
+                        <div class="timeline-year">2020 - 2021</div>
+                    </div>
+                    <div class="timeline-body">
+                        <p>Learned core concepts in Information Technology along with Physics, Chemistry, and
+                            Mathematics. Developed analytical thinking and technical interest through structured
+                            academic learning.</p>
+                    </div>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Information Technology</span>
+                        <span class="timeline-tag">Physics</span>
+                        <span class="timeline-tag">Chemistry</span>
+                        <span class="timeline-tag">Mathematics</span>
+                        <span class="timeline-tag">English</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education 3: SSLC -->
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <div class="timeline-icon-box">
+                        <i class="fa-solid fa-pen-nib" style="color: #8e24aa;"></i>
+                    </div>
+                    <div class="timeline-line"></div>
+                </div>
+                <div class="timeline-content">
+                    <div class="card-illustration"><i class="fa-solid fa-book-open"></i></div>
+                    <div class="timeline-header">
+                        <div class="timeline-title">
+                            <h3>SSLC (10th Grade) <span class="timeline-badge">62.2%</span></h3>
+                            <div class="timeline-institution">Bharani Vidhyalaya Senior Secondary School (CBSE)</div>
+                        </div>
+                        <div class="timeline-year">2019</div>
+                    </div>
+                    <div class="timeline-body">
+                        <p>Built a strong academic foundation in Science, Mathematics, Social Science, and English.
+                            Developed discipline, logical thinking, and effective communication skills.</p>
+                    </div>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Science</span>
+                        <span class="timeline-tag">Social Science</span>
+                        <span class="timeline-tag">Mathematics</span>
+                        <span class="timeline-tag">English</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <h2>Contact with me to sizzle your project</h2>
+            <p>Feel free to contact me if having any questions. I'm available for new projects or just for chatting.</p>
+
+            <form class="contact-form">
+                <div class="form-row">
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <textarea placeholder="Work Description..." rows="5"></textarea>
+                <button type="submit" class="btn btn-dark full-width">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
