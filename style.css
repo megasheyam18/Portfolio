@@ -1083,7 +1083,6 @@ textarea {
     /* Fixed width for horizontal scroll */
     background: #fff;
     border-radius: 20px;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     text-decoration: none;
@@ -1092,6 +1091,8 @@ textarea {
     border: 1px solid rgba(0, 0, 0, 0.05);
     position: relative;
     scroll-snap-align: start;
+    padding: 20px;
+    gap: 15px;
 }
 
 .certificate-card-modern:hover {
@@ -1100,168 +1101,77 @@ textarea {
     border-color: #ff7a00;
 }
 
-.card-top-bar {
-    padding: 15px 20px;
+.card-top-bar-new {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    background: #fdfdfd;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.cert-number {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #333;
-}
-
-.cert-tech-icon {
-    font-size: 1.2rem;
-    color: #ff7a00;
-}
-
-.cert-preview-area {
-    height: 220px;
-    /* Slightly taller for better aspect ratio */
-    background: #e0e0e0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    padding: 15px;
-}
-
-.cert-mockup {
+    align-items: flex-start;
     width: 100%;
-    height: 100%;
-    background: #fff;
-    border: 10px solid #003366;
-    /* Navy Blue Border */
-    position: relative;
+}
+
+.cert-header-left {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    padding: 10px;
 }
 
-/* Inner Gold Border */
-.cert-mockup::before {
-    content: '';
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    border: 2px solid #ffcc00;
-    /* Gold Inner Border */
-    pointer-events: none;
-}
-
-/* Certificate Text Mockup */
-.cert-mockup .cert-title-text {
-    font-family: 'Playfair Display', serif;
-    /* Or standard serif */
-    font-size: 0.8rem;
+.cert-title-new {
+    font-size: 1.2rem;
     font-weight: 700;
     color: #1a1a1a;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     margin-bottom: 5px;
-    border-bottom: 1px solid #1a1a1a;
 }
 
-.cert-mockup .cert-completion-text {
-    font-size: 0.5rem;
+.cert-hashtag {
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: 500;
+}
+
+.cert-platform-new {
+    font-size: 0.9rem;
     color: #666;
-    margin-bottom: 5px;
-}
-
-.cert-mockup .cert-name-line {
-    width: 60%;
-    height: 1px;
-    background: #ccc;
-    margin: 10px 0;
-}
-
-/* Gold Seal */
-.cert-mockup::after {
-    content: '\f559';
-    /* fa-award certificate icon */
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    font-size: 1.5rem;
-    color: #ffcc00;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.cert-mockup i {
-    font-size: 2rem;
-    color: #ff7a00;
-    margin-bottom: 5px;
-}
-
-.cert-mockup span {
-    font-size: 0.6rem;
-    font-weight: 700;
-    color: #999;
-    text-transform: uppercase;
-}
-
-.certificate-card-modern:hover .cert-mockup {
-    transform: scale(1.05);
-    background: #ff7a00;
-    border-color: #ff7a00;
-}
-
-.certificate-card-modern:hover .cert-mockup i,
-.certificate-card-modern:hover .cert-mockup span {
-    color: #fff;
-}
-
-.card-bottom-bar {
-    padding: 15px 20px;
-    background: #fff;
-}
-
-.platform-name {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #555;
+    font-weight: 500;
     margin: 0;
 }
 
-/* Add a zoom icon on hover like the user's image */
-.cert-preview-area::after {
-    content: '\f065';
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    background: rgba(255, 122, 0, 0.9);
-    color: #fff;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+.cert-icon-container {
+    width: 40px;
+    height: 40px;
+    background: #f5f5f5;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 2;
-    pointer-events: none;
+    transition: all 0.3s ease;
 }
 
-.certificate-card-modern:hover .cert-preview-area::after {
-    transform: translate(-50%, -50%) scale(1);
+.certificate-card-modern:hover .cert-icon-container {
+    background: #fff0e6;
+}
+
+.cert-image-container {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f9f9f9;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    border: 1px solid #f0f0f0;
+}
+
+.cert-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.certificate-card-modern:hover .cert-image-container img {
+    transform: scale(1.03);
 }
 
 .project-card-modern.coming-soon:hover {
