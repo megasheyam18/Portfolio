@@ -162,6 +162,32 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================================
+  // BACK TO PROJECTS SMOOTH SCROLL NAVIGATION
+  // ==========================================
+  const backToProjectsBtn = document.getElementById("backToProjectsBtn");
+  if (backToProjectsBtn) {
+    backToProjectsBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = this.getAttribute("data-scroll-to") || "index.html#work";
+
+      // Navigate to index.html and scroll to projects section smoothly
+      window.location.href = target;
+    });
+  }
+
+  // Handle smooth scroll on page load if URL has hash
+  if (window.location.hash) {
+    const targetElement = document.querySelector(window.location.hash);
+    if (targetElement) {
+      setTimeout(() => {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+        });
+      }, 100);
+    }
+  }
+
+  // ==========================================
   // FLOATING SOCIALS VISIBILITY ON SCROLL
   // ==========================================
   const socials = document.querySelector(".floating-socials");

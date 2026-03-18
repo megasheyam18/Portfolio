@@ -231,6 +231,9 @@
 </head>
 
 <body class="projects-page">
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
 
     <div id="grid-view">
         <nav class="back-nav">
@@ -251,7 +254,9 @@
 
     <div id="detail-view" style="display: none;">
         <nav class="back-nav">
-            <a href="#" id="backToProjectsBtn" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Back to
+            <a href="#" id="backToProjectsBtn" class="btn-back" data-scroll-to="index.html#work"><i
+                    class="fa-solid fa-arrow-left"></i>
+                Back to
                 Projects</a>
         </nav>
 
@@ -289,6 +294,7 @@
     </div>
 
     <script type="module" src="projects.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
