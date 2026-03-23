@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 
 function ScrollToSection() {
+  const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:projectId" element={<Projects />} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </>
   );

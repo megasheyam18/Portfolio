@@ -11,12 +11,16 @@ import Education from "../components/Education";
 import Projects from "../components/Projects";
 import Certificates from "../components/Certificates";
 import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 import CertificateModal from "../components/CertificateModal";
 import CustomCursor from "../components/CustomCursor";
+import LoadingScreen from "../components/LoadingScreen";
+import FadeInSection from "../components/FadeInSection";
 
 function Home() {
   const [modalData, setModalData] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
 
   // Handle scroll to section on page load if hash is present
@@ -33,7 +37,6 @@ function Home() {
   }, [location]);
 
   const handleOpenModal = (pdf, title, organization) => {
-    // For PDFs, we'll show the image in modal
     const certImage = `/assets/Cerfectiate/${title.toLowerCase().replace(/\s+/g, "-")}.png`;
     setModalData({ image: certImage, title, organization, pdf });
     setIsModalOpen(true);
@@ -44,8 +47,13 @@ function Home() {
     setModalData(null);
   };
 
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
+
   return (
     <>
+      {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
       <CustomCursor />
       <CertificateModal
         isOpen={isModalOpen}
@@ -55,15 +63,43 @@ function Home() {
       <Navbar />
       <FloatingSocials />
 
-      <Hero />
-      <Tools />
-      <About />
-      <Services />
-      <Experience />
-      <Education />
-      <Projects />
-      <Certificates onOpenModal={handleOpenModal} />
-      <Contact />
+      <FadeInSection delay={100}>
+        <Hero />
+      </FadeInSection>
+
+      <FadeInSection delay={200}>
+        <Tools />
+      </FadeInSection>
+
+      <FadeInSection delay={300}>
+        <About />
+      </FadeInSection>
+
+      <FadeInSection delay={400}>
+        <Services />
+      </FadeInSection>
+
+      <FadeInSection delay={500}>
+        <Experience />
+      </FadeInSection>
+
+      <FadeInSection delay={600}>
+        <Education />
+      </FadeInSection>
+
+      <FadeInSection delay={700}>
+        <Projects />
+      </FadeInSection>
+
+      <FadeInSection delay={800}>
+        <Certificates onOpenModal={handleOpenModal} />
+      </FadeInSection>
+
+      <FadeInSection delay={900}>
+        <Contact />
+      </FadeInSection>
+
+      <Footer />
     </>
   );
 }

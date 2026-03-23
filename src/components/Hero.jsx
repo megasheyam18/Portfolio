@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
-import toolsData from "../data/tools.json";
+import { useState, useEffect, useRef } from "react";
 
 function Hero() {
   const [typedText, setTypedText] = useState("");
   const [stats, setStats] = useState({ repos: 0, leetcode: 0, techs: 0 });
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const texts = [
     "Mega Sheyam S",
@@ -11,35 +11,45 @@ function Hero() {
     "Backend Developer | Problem Solver",
   ];
 
-  let textIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
+  const textIndexRef = useRef(0);
+  const charIndexRef = useRef(0);
+  const isDeletingRef = useRef(false);
+  const typingSpeedRef = useRef(100);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   useEffect(() => {
     const typeEffect = () => {
-      const currentText = texts[textIndex];
+      const currentText = texts[textIndexRef.current];
 
-      if (isDeleting) {
-        setTypedText(currentText.substring(0, charIndex - 1));
-        charIndex--;
-        setTimeout(typeEffect, 50);
+      if (isDeletingRef.current) {
+        setTypedText(currentText.substring(0, charIndexRef.current - 1));
+        charIndexRef.current--;
+        typingSpeedRef.current = 60;
       } else {
-        setTypedText(currentText.substring(0, charIndex + 1));
-        charIndex++;
-        setTimeout(typeEffect, 100);
+        setTypedText(currentText.substring(0, charIndexRef.current + 1));
+        charIndexRef.current++;
+        typingSpeedRef.current = 100;
       }
 
-      if (!isDeleting && charIndex === currentText.length) {
-        isDeleting = true;
-        setTimeout(typeEffect, 2000);
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        textIndex = (textIndex + 1) % texts.length;
-        setTimeout(typeEffect, 500);
+      if (
+        !isDeletingRef.current &&
+        charIndexRef.current === currentText.length
+      ) {
+        isDeletingRef.current = true;
+        typingSpeedRef.current = 2500;
+      } else if (isDeletingRef.current && charIndexRef.current === 0) {
+        isDeletingRef.current = false;
+        textIndexRef.current = (textIndexRef.current + 1) % texts.length;
+        typingSpeedRef.current = 800;
       }
+
+      setTimeout(typeEffect, typingSpeedRef.current);
     };
 
-    const timeout = setTimeout(typeEffect, 1000);
+    const timeout = setTimeout(typeEffect, 1500);
     return () => clearTimeout(timeout);
   }, []);
 

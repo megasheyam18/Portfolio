@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { Link, useParams, useLocation, useNavigate } from "react-router-dom";
 import projectsData from "../data/projects.json";
 import CustomCursor from "../components/CustomCursor";
 
 function Projects() {
   const { projectId } = useParams();
   const location = useLocation();
+  const navigate = useNavigate();
   const [showDetail, setShowDetail] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -31,15 +32,16 @@ function Projects() {
     if (!project.isComingSoon) {
       setSelectedProject(project);
       setShowDetail(true);
-      window.history.pushState(null, "", `#work-${project.id}`);
+      navigate(`/projects#work-${project.id}`, { replace: false });
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
-  const handleBackToProjects = () => {
+  const handleBackToProjects = (e) => {
+    e.preventDefault();
     setShowDetail(false);
     setSelectedProject(null);
-    window.history.pushState(null, "", "/projects");
+    navigate("/projects", { replace: false });
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -65,7 +67,8 @@ function Projects() {
               zIndex: 1100,
             }}
           >
-            <button
+            <a
+              href="/projects"
               onClick={handleBackToProjects}
               className="btn-back"
               style={{
@@ -84,7 +87,7 @@ function Projects() {
               }}
             >
               <i className="fa-solid fa-arrow-left"></i> Back to Projects
-            </button>
+            </a>
           </nav>
 
           <div
@@ -349,6 +352,11 @@ function Projects() {
                   cursor: project.isComingSoon ? "default" : "pointer",
                 }}
                 onClick={() => handleProjectClick(project)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) =>
+                  e.key === "Enter" && handleProjectClick(project)
+                }
               >
                 <div className="card-overlay"></div>
                 {project.isComingSoon && (
