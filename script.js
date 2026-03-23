@@ -1,3 +1,54 @@
+// ==========================================
+// TYPING ANIMATION FOR HERO SECTION
+// ==========================================
+const typedTextElement = document.querySelector(".typed-text");
+const texts = [
+  "Mega Sheyam S",
+  "Java Full Stack Developer",
+  "Backend Developer | Problem Solver",
+];
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typingSpeed = 100;
+
+function typeEffect() {
+  if (!typedTextElement) {
+    // If no typed-text element, just return
+    return;
+  }
+
+  const currentText = texts[textIndex];
+
+  if (isDeleting) {
+    typedTextElement.textContent = currentText.substring(0, charIndex - 1);
+    charIndex--;
+    typingSpeed = 50;
+  } else {
+    typedTextElement.textContent = currentText.substring(0, charIndex + 1);
+    charIndex++;
+    typingSpeed = 100;
+  }
+
+  if (!isDeleting && charIndex === currentText.length) {
+    // Wait before deleting
+    isDeleting = true;
+    typingSpeed = 2000;
+  } else if (isDeleting && charIndex === 0) {
+    // Move to next text
+    isDeleting = false;
+    textIndex = (textIndex + 1) % texts.length;
+    typingSpeed = 500;
+  }
+
+  setTimeout(typeEffect, typingSpeed);
+}
+
+// Start typing animation
+if (typedTextElement) {
+  setTimeout(typeEffect, 1000);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   // ==========================================
   // CUSTOM CURSOR FUNCTIONALITY
@@ -224,3 +275,130 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(section);
   });
 });
+
+// ==========================================
+// CERTIFICATE MODAL FUNCTIONALITY
+// ==========================================
+function openCertificateModal(pdfUrl, title, organization) {
+  const modal = document.getElementById("certificateModal");
+  const modalImg = document.getElementById("modalCertImage");
+  const modalTitle = document.getElementById("modalCertTitle");
+  const modalOrg = document.getElementById("modalCertOrg");
+
+  if (modal && modalImg && modalTitle && modalOrg) {
+    modalImg.src = pdfUrl;
+    modalTitle.textContent = title;
+    modalOrg.textContent = organization;
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+}
+
+function closeCertificateModal() {
+  const modal = document.getElementById("certificateModal");
+  if (modal) {
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+}
+
+// Close modal on escape key
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    closeCertificateModal();
+  }
+});
+
+// ==========================================
+// EMAILJS CONTACT FORM INTEGRATION
+// ==========================================
+// Initialize EmailJS (Replace with your actual public key)
+// You need to sign up at https://www.emailjs.com/ and replace these values
+(function () {
+  emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+})();
+
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("contactName").value;
+    const email = document.getElementById("contactEmail").value;
+    const message = document.getElementById("contactMessage").value;
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+    // Validate inputs
+    if (!name || !email || !message) {
+      showToast("Please fill in all fields");
+      return;
+    }
+
+    // Show loading state
+    const originalBtnText = submitBtn.innerHTML;
+    submitBtn.innerHTML =
+      '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+    submitBtn.disabled = true;
+
+    try {
+      // Send email using EmailJS
+      // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual values
+      await emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+        from_name: name,
+        from_email: email,
+        message: message,
+        to_name: "Mega Sheyam S",
+      });
+
+      // Show success message
+      showToast("Message sent successfully! I will get back to you soon.");
+      contactForm.reset();
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      showToast(
+        "Failed to send message. Please try again or email me directly.",
+      );
+    } finally {
+      submitBtn.innerHTML = originalBtnText;
+      submitBtn.disabled = false;
+    }
+  });
+}
+
+// Toast notification function
+function showToast(message) {
+  // Create toast element
+  const toast = document.createElement("div");
+  toast.className = "toast-notification";
+  toast.innerHTML = `
+    <i class="fa-solid fa-circle-check"></i>
+    <span>${message}</span>
+  `;
+
+  // Add styles
+  toast.style.cssText = `
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #43a047, #2e7d32);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideIn 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+  `;
+
+  document.body.appendChild(toast);
+
+  // Remove after 4 seconds
+  setTimeout(() => {
+    toast.style.animation = "slideOut 0.3s ease";
+    setTimeout(() => toast.remove(), 300);
+  }, 4000);
+}

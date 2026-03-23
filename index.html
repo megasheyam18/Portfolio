@@ -32,11 +32,28 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <!-- EmailJS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <meta name="google-site-verification" content="3woRH30l-ACWbkohWxRXKjz1J7aJrC_Lq7mopTNdIRY" />
 </head>
 
 <body>
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="certificate-modal">
+        <div class="modal-overlay" onclick="closeCertificateModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeCertificateModal()">&times;</button>
+            <div class="modal-certificate">
+                <img id="modalCertImage" src="" alt="Certificate">
+                <div class="modal-cert-info">
+                    <h3 id="modalCertTitle"></h3>
+                    <p id="modalCertOrg"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Custom Cursor -->
     <div class="custom-cursor" id="customCursor"></div>
     <div class="cursor-dot" id="cursorDot"></div>
@@ -61,8 +78,10 @@
 
             <ul class="nav-menu" id="navMenu">
                 <li class="nav-item"><a href="#home" class="nav-link" data-section="home">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link" data-section="about">About</a></li>
                 <li class="nav-item"><a href="#work" class="nav-link" data-section="projects">Projects</a></li>
-                <li class="nav-item"><a href="#tools" class="nav-link" data-section="tools">Tools</a></li>
+                <li class="nav-item"><a href="#certifications" class="nav-link"
+                        data-section="certifications">Certifications</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
             </ul>
         </div>
@@ -85,7 +104,7 @@
     <section id="home" class="hero container">
         <div class="hero-center">
             <div class="badge">● AVAILABLE FOR WORK</div>
-            <h1>Hi, I’m a<br>Frontend<br>Developer<span class="copyright">©</span></h1>
+            <h1>Hi, I'm <span class="typed-text"></span><span class="typed-cursor">|</span></h1>
             <p class="hero-desc">I build fast, responsive, and user-friendly web applications using modern technologies.
                 Passionate about clean UI, performance optimization, and scalable solutions.</p>
             <!-- Contact button removed -->
@@ -194,6 +213,36 @@
                 <div class="tool-card">
                     <div class="tool-icon"><i class="fa-regular fa-file-word"></i></div>
                     <span class="tool-label">MS Office</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section container">
+        <div class="section-header-work">
+            <h2>About Me</h2>
+            <p style="margin-top: 10px; color: #666;">Get to know me better</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I'm a passionate <strong>Java Full Stack Developer</strong> with expertise in building end-to-end web
+                    applications. I specialize in creating efficient, scalable, and user-friendly solutions.</p>
+                <p>With a strong foundation in both frontend and backend technologies, I enjoy solving complex problems
+                    and turning ideas into reality through code.</p>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <i class="fa-solid fa-code"></i>
+                        <span>Full Stack Development</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fa-solid fa-database"></i>
+                        <span>Backend & Database</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <span>Problem Solving</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -495,7 +544,8 @@
 
         <div class="certificate-grid-modern">
             <!-- Cert 1: GitHub -->
-            <a href="assets/Cerfectiate/Coursera ELQTGQJHBL8C.pdf" target="_blank" class="certificate-card-modern">
+            <div class="certificate-card-modern"
+                onclick="openCertificateModal('assets/Cerfectiate/Coursera ELQTGQJHBL8C.pdf', 'Git Hub', 'Coursera / IBM')">
                 <div class="card-top-bar-new">
                     <div class="cert-header-left">
                         <h3 class="cert-title-new">Git Hub <span class="cert-hashtag">#1</span></h3>
@@ -508,10 +558,11 @@
                 <div class="cert-image-container">
                     <img src="assets/Cerfectiate/Git-Hub.png" alt="GitHub Certificate">
                 </div>
-            </a>
+            </div>
 
             <!-- Cert 2: Acquiring Data -->
-            <a href="assets/Cerfectiate/MegasheyamS-95672964.pdf" target="_blank" class="certificate-card-modern">
+            <div class="certificate-card-modern"
+                onclick="openCertificateModal('assets/Cerfectiate/MegasheyamS-95672964.pdf', 'Acquiring Data', 'Nasscom')">
                 <div class="card-top-bar-new">
                     <div class="cert-header-left">
                         <h3 class="cert-title-new">Acquiring Data <span class="cert-hashtag">#2</span></h3>
@@ -524,10 +575,11 @@
                 <div class="cert-image-container">
                     <img src="assets/Cerfectiate/Acquire-data.png" alt="Acquiring Data Certificate">
                 </div>
-            </a>
+            </div>
 
             <!-- Cert 3: Intro to Gen AI -->
-            <a href="assets/Cerfectiate/Coursera 4S3KMQDT2EMX (1).pdf" target="_blank" class="certificate-card-modern">
+            <div class="certificate-card-modern"
+                onclick="openCertificateModal('assets/Cerfectiate/Coursera 4S3KMQDT2EMX (1).pdf', 'Intro to Gen AI', 'Coursera / Google')">
                 <div class="card-top-bar-new">
                     <div class="cert-header-left">
                         <h3 class="cert-title-new">Intro to Gen AI <span class="cert-hashtag">#3</span></h3>
@@ -540,11 +592,11 @@
                 <div class="cert-image-container">
                     <img src="assets/Cerfectiate/AI.png" alt="Introduction to Gen AI Certificate">
                 </div>
-            </a>
+            </div>
 
             <!-- Cert 4: Presentation Mastery -->
-            <a href="assets/Cerfectiate/Presentation Certificate - Mega Sheyam S.pdf" target="_blank"
-                class="certificate-card-modern">
+            <div class="certificate-card-modern"
+                onclick="openCertificateModal('assets/Cerfectiate/Presentation Certificate - Mega Sheyam S.pdf', 'Presentation Mastery', 'Symposium')">
                 <div class="card-top-bar-new">
                     <div class="cert-header-left">
                         <h3 class="cert-title-new">Presentation <span class="cert-hashtag">#4</span></h3>
@@ -557,11 +609,11 @@
                 <div class="cert-image-container">
                     <img src="assets/Cerfectiate/Paper-presentation.png" alt="Presentation Mastery Certificate">
                 </div>
-            </a>
+            </div>
 
             <!-- Cert 5: MangoDB -->
-            <a href="assets/Cerfectiate/mega-sheyam-s-e9186819-00f8-4250-8654-6923830ccff5-certificate.pdf"
-                target="_blank" class="certificate-card-modern">
+            <div class="certificate-card-modern"
+                onclick="openCertificateModal('assets/Cerfectiate/mega-sheyam-s-e9186819-00f8-4250-8654-6923830ccff5-certificate.pdf', 'MongoDB', 'Simplilearn')">
                 <div class="card-top-bar-new">
                     <div class="cert-header-left">
                         <h3 class="cert-title-new">MongoDB <span class="cert-hashtag">#5</span></h3>
@@ -574,10 +626,11 @@
                 <div class="cert-image-container">
                     <img src="assets/Cerfectiate/Mango-db.png" alt="MongoDB Certificate">
                 </div>
-            </a>
+            </div>
 
             <!-- Cert 6: Code Buzz -->
-            <a href="assets/Cerfectiate/Mega sheyam  S.pdf" target="_blank" class="certificate-card-modern">
+            <div class="certificate-card-modern"
+                onclick="openCertificateModal('assets/Cerfectiate/Mega sheyam  S.pdf', 'Code Buzz', 'KSRCT')">
                 <div class="card-top-bar-new">
                     <div class="cert-header-left">
                         <h3 class="cert-title-new">Code Buzz <span class="cert-hashtag">#6</span></h3>
@@ -590,11 +643,11 @@
                 <div class="cert-image-container">
                     <img src="assets/Cerfectiate/Code-Buzz.png" alt="Code Buzz Certificate">
                 </div>
-            </a>
+            </div>
 
             <!-- Cert 7: Paper Publishing -->
-            <a href="assets/Cerfectiate/Adobe Scan Feb 05, 2026 (1).pdf" target="_blank"
-                class="certificate-card-modern">
+            <div class="certificate-card-modern"
+                onclick="openCertificateModal('assets/Cerfectiate/Adobe Scan Feb 05, 2026 (1).pdf', 'Paper Publishing', 'Conference')">
                 <div class="card-top-bar-new">
                     <div class="cert-header-left">
                         <h3 class="cert-title-new">Paper Publishing <span class="cert-hashtag">#7</span></h3>
@@ -607,10 +660,11 @@
                 <div class="cert-image-container">
                     <img src="assets/Cerfectiate/Paper-publish.png" alt="Paper Publishing Certificate">
                 </div>
-            </a>
+            </div>
 
             <!-- Cert 8: Internship -->
-            <a href="assets/Cerfectiate/Adobe Scan Feb 05, 2026.pdf" target="_blank" class="certificate-card-modern">
+            <div class="certificate-card-modern"
+                onclick="openCertificateModal('assets/Cerfectiate/Adobe Scan Feb 05, 2026.pdf', 'Internship', 'Coreverse')">
                 <div class="card-top-bar-new">
                     <div class="cert-header-left">
                         <h3 class="cert-title-new">Internship <span class="cert-hashtag">#8</span></h3>
@@ -623,7 +677,7 @@
                 <div class="cert-image-container">
                     <img src="assets/Cerfectiate/internship.png" alt="Internship Certificate">
                 </div>
-            </a>
+            </div>
         </div>
     </section>
 
@@ -635,13 +689,15 @@
             <p>Feel free to contact me if having any questions. I'm available for new projects or just for chatting.
             </p>
 
-            <form class="contact-form">
+            <form class="contact-form" id="contactForm">
                 <div class="form-row">
-                    <input type="text" placeholder="Name" required>
-                    <input type="email" placeholder="Email" required>
+                    <input type="text" id="contactName" name="name" placeholder="Your Name" required>
+                    <input type="email" id="contactEmail" name="email" placeholder="Your Email" required>
                 </div>
-                <textarea placeholder="Work Description..." rows="5"></textarea>
-                <button type="submit" class="btn btn-dark full-width">Submit</button>
+                <textarea id="contactMessage" name="message" placeholder="Tell me about your project or just say hi!"
+                    rows="5" required></textarea>
+                <button type="submit" class="btn btn-dark full-width">Send Message <i
+                        class="fa-solid fa-paper-plane"></i></button>
             </form>
         </div>
     </section>
