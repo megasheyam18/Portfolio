@@ -1,0 +1,15 @@
+{
+  "tools": [
+    { "name": "GitHub", "icon": "fa-github", "iconType": "brand" },
+    { "name": "VS Code", "icon": "fa-code", "iconType": "solid" },
+    { "name": "HTML5", "icon": "fa-html5", "iconType": "brand" },
+    { "name": "CSS3", "icon": "fa-css3-alt", "iconType": "brand" },
+    { "name": "JavaScript", "icon": "fa-js", "iconType": "brand" },
+    { "name": "Java", "icon": "fa-java", "iconType": "brand" },
+    { "name": "Bootstrap", "icon": "fa-bootstrap", "iconType": "brand" },
+    { "name": "SQL", "icon": "fa-database", "iconType": "solid" },
+    { "name": "Vercel", "icon": "fa-cloud-arrow-up", "iconType": "solid" },
+    { "name": "Canva", "icon": "fa-palette", "iconType": "solid" },
+    { "name": "MS Office", "icon": "fa-file-word", "iconType": "regular" }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "certificates": [
+    {
+      "id": "github",
+      "title": "Git Hub",
+      "organization": "Coursera / IBM",
+      "image": "assets/Cerfectiate/Git-Hub.png",
+      "pdf": "assets/Cerfectiate/Coursera ELQTGQJHBL8C.pdf",
+      "icon": "fa-github",
+      "iconColor": "#333"
+    },
+    {
+      "id": "acquiring-data",
+      "title": "Acquiring Data",
+      "organization": "Nasscom",
+      "image": "assets/Cerfectiate/Acquire-data.png",
+      "pdf": "assets/Cerfectiate/MegasheyamS-95672964.pdf",
+      "icon": "fa-server",
+      "iconColor": "#1e88e5"
+    },
+    {
+      "id": "intro-gen-ai",
+      "title": "Intro to Gen AI",
+      "organization": "Coursera / Google",
+      "image": "assets/Cerfectiate/AI.png",
+      "pdf": "assets/Cerfectiate/Coursera 4S3KMQDT2EMX (1).pdf",
+      "icon": "fa-robot",
+      "iconColor": "#43a047"
+    },
+    {
+      "id": "presentation",
+      "title": "Presentation",
+      "organization": "Symposium",
+      "image": "assets/Cerfectiate/Paper-presentation.png",
+      "pdf": "assets/Cerfectiate/Presentation Certificate - Mega Sheyam S.pdf",
+      "icon": "fa-person-chalkboard",
+      "iconColor": "#fb8c00"
+    },
+    {
+      "id": "mongodb",
+      "title": "MongoDB",
+      "organization": "Simplilearn",
+      "image": "assets/Cerfectiate/Mango-db.png",
+      "pdf": "assets/Cerfectiate/mega-sheyam-s-e9186819-00f8-4250-8654-6923830ccff5-certificate.pdf",
+      "icon": "fa-leaf",
+      "iconColor": "#43a047"
+    },
+    {
+      "id": "code-buzz",
+      "title": "Code Buzz",
+      "organization": "KSRCT",
+      "image": "assets/Cerfectiate/Code-Buzz.png",
+      "pdf": "assets/Cerfectiate/Mega sheyam  S.pdf",
+      "icon": "fa-code",
+      "iconColor": "#8e24aa"
+    },
+    {
+      "id": "paper-publishing",
+      "title": "Paper Publishing",
+      "organization": "Conference",
+      "image": "assets/Cerfectiate/Paper-publish.png",
+      "pdf": "assets/Cerfectiate/Adobe Scan Feb 05, 2026 (1).pdf",
+      "icon": "fa-file-lines",
+      "iconColor": "#1e88e5"
+    },
+    {
+      "id": "internship",
+      "title": "Internship",
+      "organization": "Coreverse",
+      "image": "assets/Cerfectiate/internship.png",
+      "pdf": "assets/Cerfectiate/Adobe Scan Feb 05, 2026.pdf",
+      "icon": "fa-briefcase",
+      "iconColor": "#ff7a00"
+    }
+  ]
+}
