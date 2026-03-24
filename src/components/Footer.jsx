@@ -48,10 +48,11 @@ function Footer() {
 
           <div className="footer-links">
             <div className="footer-column">
-              <h4>Quick Links</h4>
+              <h4>Sitemap</h4>
               <a href="#home">Home</a>
               <a href="#about">About</a>
               <a href="#work">Projects</a>
+              <a href="#certifications">Certifications</a>
               <a href="#contact">Contact</a>
             </div>
 
@@ -71,13 +72,13 @@ function Footer() {
               >
                 WhatsApp
               </a>
-              <a href="mailto:megashyam@example.com">Email</a>
+              <a href="mailto:megashyam1633@gmail.com">Email</a>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>© {currentYear} Mega Shyam S. All rights reserved.</p>
+          <p> {currentYear} Mega Shyam S. All rights reserved.</p>
           <p>Built with passion and code</p>
         </div>
       </div>
@@ -103,18 +104,18 @@ function Footer() {
           position: absolute;
           width: 4px;
           height: 4px;
-          background: rgba(255, 122, 0, 0.3);
+          background: rgba(255, 0, 0, 0.3);
           border-radius: 50%;
           animation: dotPulse 3s ease-in-out infinite;
         }
 
         @keyframes dotPulse {
           0%, 100% {
-            opacity: 0.2;
+           
             transform: scale(1);
           }
           50% {
-            opacity: 0.6;
+            
             transform: scale(1.2);
           }
         }
@@ -173,7 +174,7 @@ function Footer() {
         }
 
         .footer-column a:hover {
-          color: #ff7a00;
+          color: #ff0000;
         }
 
         .footer-bottom {
