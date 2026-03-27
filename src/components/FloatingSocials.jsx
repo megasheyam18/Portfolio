@@ -1,6 +1,6 @@
 function FloatingSocials() {
   return (
-    <div className="floating-socials">
+    <div className="floating-socials visible">
       <a
         href="https://www.linkedin.com/in/megashyam/"
         target="_blank"

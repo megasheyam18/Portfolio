@@ -73,6 +73,7 @@ function CustomCursor() {
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
+          pointerEvents: "none",
         }}
       ></div>
       <div
@@ -80,6 +81,7 @@ function CustomCursor() {
         style={{
           left: `${dotPosition.x}px`,
           top: `${dotPosition.y}px`,
+          pointerEvents: "none",
         }}
       ></div>
     </>

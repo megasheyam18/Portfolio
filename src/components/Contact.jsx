@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -8,6 +9,7 @@ function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [toast, setToast] = useState(null);
+  const formRef = useRef();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,13 +43,43 @@ function Contact() {
     setIsSubmitting(true);
 
     try {
-      // Note: EmailJS would need to be initialized in the app
-      // For now, show success message
-      showToast("Message sent successfully! I will get back to you soon.");
-      setFormData({ name: "", email: "", message: "" });
+      // EmailJS configuration
+      // Replace these with your actual EmailJS credentials from https://www.emailjs.com/
+      const serviceId = "service_portfolio"; // Your EmailJS service ID
+      const templateId = "template_contact"; // Your EmailJS template ID
+      const publicKey = "YOUR_PUBLIC_KEY"; // Your EmailJS public key
+
+      // Check if EmailJS is configured
+      if (publicKey === "YOUR_PUBLIC_KEY") {
+        // Fallback: Open email client with mailto
+        const subject = encodeURIComponent(
+          `Portfolio Contact from ${formData.name}`,
+        );
+        const body = encodeURIComponent(
+          `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`,
+        );
+        const mailtoLink = `mailto:megashyam@gmail.com?subject=${subject}&body=${body}`;
+
+        window.open(mailtoLink, "_blank");
+        showToast("Opening your email client to send the message...");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        // Send email using EmailJS
+        const templateParams = {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: "Mega Shyam S",
+        };
+
+        await emailjs.send(serviceId, templateId, templateParams, publicKey);
+        showToast("Message sent successfully! I will get back to you soon.");
+        setFormData({ name: "", email: "", message: "" });
+      }
     } catch (error) {
+      console.error("EmailJS Error:", error);
       showToast(
-        "Failed to send message. Please try again or email me directly.",
+        "Failed to send message. Please try again or email me directly at megashyam@gmail.com",
         true,
       );
     } finally {
@@ -80,7 +112,12 @@ function Contact() {
           projects or just for chatting.
         </p>
 
-        <form className="contact-form" id="contactForm" onSubmit={handleSubmit}>
+        <form
+          ref={formRef}
+          className="contact-form"
+          id="contactForm"
+          onSubmit={handleSubmit}
+        >
           <div className="form-row">
             <input
               type="text"

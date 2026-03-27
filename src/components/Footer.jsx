@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   // Generate dot grid positions once
@@ -49,11 +50,11 @@ function Footer() {
           <div className="footer-links">
             <div className="footer-column">
               <h4>Sitemap</h4>
-              <a href="#home">Home</a>
-              <a href="#about">About</a>
-              <a href="#work">Projects</a>
-              <a href="#certifications">Certifications</a>
-              <a href="#contact">Contact</a>
+              <Link to="/home">Home</Link>
+              <Link to="/about">About</Link>
+              <Link to="/project">Projects</Link>
+              <Link to="/certificates">Certifications</Link>
+              <Link to="/contact">Contact</Link>
             </div>
 
             <div className="footer-column">

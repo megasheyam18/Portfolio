@@ -302,7 +302,7 @@ function Projects() {
           style={{ position: "fixed", top: "30px", left: "30px", zIndex: 1100 }}
         >
           <Link
-            to="/#work"
+            to="/"
             className="btn-back"
             style={{
               background: "#111",

@@ -351,7 +351,7 @@ body {
 /* About Section */
 .about-section {
   padding: 80px 20px;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 
 .about-content {
@@ -576,8 +576,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-   
+    min-height: calc(100vh - 150px);
     margin-bottom: 80px;
+    gap: 60px;
 }
 
 .badge {
@@ -988,6 +989,8 @@ body {
     border-radius: 30px;
     padding: 80px 60px;
     margin-bottom: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .mission h2 {
@@ -1012,6 +1015,7 @@ body {
     display: flex;
     gap: 40px;
     margin-bottom: 80px;
+    align-items: flex-start;
 }
 
 .section-header {
@@ -1104,6 +1108,7 @@ body {
     /* Changed to 2 columns */
     gap: 40px;
     margin-bottom: 80px;
+    align-items: start;
 }
 
 .exp-intro {
@@ -1182,6 +1187,7 @@ body {
 /* Selected Work */
 .work {
     margin-bottom: 80px;
+    padding: 0 20px;
 }
 
 .section-header-work {
@@ -1260,6 +1266,7 @@ body {
     border-radius: 30px;
     padding: 100px 20px;
     text-align: center;
+    margin-bottom: 80px;
 }
 
 .contact-container {
@@ -1356,6 +1363,7 @@ textarea {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
     margin-top: 20px;
+    padding: 0 20px;
 }
 
 .project-card-modern {
@@ -1376,15 +1384,16 @@ textarea {
 
 /* Tools Section */
 .tools-section {
-    padding: 80px 0;
+    padding: 80px 20px;
     background-color: var(--white);
     margin-bottom: 80px;
 }
 
 /* Statistics Section */
 .stats-section {
-    padding: 60px 0;
+    padding: 60px 20px;
     background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+    margin-bottom: 80px;
 }
 
 .stats-grid {
@@ -1576,8 +1585,9 @@ textarea {
 
 /* Certifications Section */
 .certificate-section {
-    padding: 80px 0;
+    padding: 80px 20px;
     background-color: var(--bg-color);
+    margin-bottom: 80px;
 }
 
 .certificate-grid {
@@ -1646,8 +1656,9 @@ textarea {
 
 /* Modern Certification Cards */
 .certificate-section-modern {
-    padding: 80px 0;
+    padding: 80px 20px;
     background-color: #f9f9f9;
+    margin-bottom: 80px;
 }
 
 .section-header-modern {
@@ -1953,6 +1964,7 @@ textarea {
 /* Education & Experience Section */
 .edu-exp {
     margin-bottom: 80px;
+    padding: 0 20px;
 }
 
 .edu-exp-grid {
@@ -2034,6 +2046,7 @@ textarea {
 /* New Education & Experience Grid Styles */
 .edu-exp-new {
     margin-bottom: 80px;
+    padding: 0 20px;
 }
 
 .row-title {
@@ -2142,6 +2155,7 @@ textarea {
     position: relative;
     max-width: 1000px;
     margin: 0 auto 80px;
+    padding: 0 20px;
 }
 
 .timeline-item {
@@ -2299,6 +2313,7 @@ textarea {
 /* Projects Section */
 .projects-section {
     margin-bottom: 80px;
+    padding: 0 20px;
 }
 
 .projects-grid {

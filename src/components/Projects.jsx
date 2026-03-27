@@ -11,14 +11,11 @@ function Projects() {
       </div>
       <div className="projects-grid-modern">
         {featuredProjects.map((project) => (
-          <div
+          <Link
             key={project.id}
+            to={project.isComingSoon ? "#" : `/projects#work-${project.id}`}
             className={`project-card-modern ${project.isComingSoon ? "coming-soon" : ""}`}
             style={{ backgroundImage: `url('${project.heroImage}')` }}
-            onClick={() =>
-              !project.isComingSoon &&
-              window.history.pushState(null, "", `/projects#work-${project.id}`)
-            }
           >
             <div className="card-overlay"></div>
             {project.isComingSoon && (
@@ -39,7 +36,7 @@ function Projects() {
                 <i className="fa-solid fa-arrow-right"></i>
               </div>
             )}
-          </div>
+          </Link>
         ))}
       </div>
 

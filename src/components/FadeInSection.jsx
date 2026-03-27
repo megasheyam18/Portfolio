@@ -5,27 +5,12 @@ function FadeInSection({ children, delay = 0, direction = "up" }) {
   const ref = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            setIsVisible(true);
-          }, delay);
-          observer.unobserve(ref.current);
-        }
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
-    );
+    // Make visible immediately for testing
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, delay);
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
+    return () => clearTimeout(timer);
   }, [delay]);
 
   const getTransform = () => {
@@ -47,6 +32,7 @@ function FadeInSection({ children, delay = 0, direction = "up" }) {
         opacity: isVisible ? 1 : 0,
         transform: getTransform(),
         transition: "opacity 0.6s ease-out, transform 0.6s ease-out",
+        minHeight: "1px",
       }}
     >
       {children}

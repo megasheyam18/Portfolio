@@ -61,7 +61,7 @@ function CertificatesPage() {
           style={{ position: "fixed", top: "30px", left: "30px", zIndex: 1100 }}
         >
           <Link
-            to="/#certifications"
+            to="/"
             className="btn-back"
             style={{
               background: "#111",

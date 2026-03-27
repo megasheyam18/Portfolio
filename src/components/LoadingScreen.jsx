@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 function LoadingScreen({ onComplete }) {
-  const [isLoading, setIsLoading] = useState(true);
   const [isFadingOut, setIsFadingOut] = useState(false);
 
   useEffect(() => {
@@ -9,15 +8,12 @@ function LoadingScreen({ onComplete }) {
     const timer = setTimeout(() => {
       setIsFadingOut(true);
       setTimeout(() => {
-        setIsLoading(false);
         if (onComplete) onComplete();
       }, 800);
     }, 2000);
 
     return () => clearTimeout(timer);
   }, [onComplete]);
-
-  if (!isLoading) return null;
 
   return (
     <div className={`loading-screen ${isFadingOut ? "fade-out" : ""}`}>
@@ -39,8 +35,9 @@ function LoadingScreen({ onComplete }) {
           display: flex;
           align-items: center;
           justify-content: center;
-          z-index: 99999;
+          z-index: 9999;
           animation: fadeIn 0.5s ease;
+          pointer-events: none;
         }
 
         .loading-content {
@@ -93,6 +90,9 @@ function LoadingScreen({ onComplete }) {
 
         .loading-screen.fade-out {
           animation: fadeOut 0.8s ease forwards;
+          pointer-events: none;
+          visibility: hidden;
+          display: none;
         }
 
         @keyframes fadeOut {
