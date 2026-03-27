@@ -1,8 +1,10 @@
+import { FaCode, FaDatabase, FaLightbulb } from "react-icons/fa";
+
 function About() {
   const highlights = [
-    { icon: "fa-code", text: "Full Stack Development" },
-    { icon: "fa-database", text: "Backend & Database" },
-    { icon: "fa-lightbulb", text: "Problem Solving" },
+    { icon: <FaCode />, text: "Full Stack Development" },
+    { icon: <FaDatabase />, text: "Backend & Database" },
+    { icon: <FaLightbulb />, text: "Problem Solving" },
   ];
 
   return (
@@ -28,7 +30,7 @@ function About() {
           <div className="about-highlights">
             {highlights.map((item, index) => (
               <div key={index} className="highlight-item">
-                <i className={`fa-solid ${item.icon}`}></i>
+                <span className="highlight-icon">{item.icon}</span>
                 <span>{item.text}</span>
               </div>
             ))}

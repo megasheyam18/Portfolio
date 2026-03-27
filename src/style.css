@@ -401,9 +401,13 @@ body {
   box-shadow: 0 5px 20px rgba(18, 158, 170, 0.2);
 }
 
-.highlight-item i {
+.highlight-item i,
+.highlight-item .highlight-icon {
   color: #129eaa;
   font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .highlight-item span {
@@ -1664,14 +1668,10 @@ textarea {
 }
 
 .certificate-grid-modern {
-    display: flex;
-    overflow-x: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
     padding: 20px 0 40px;
-    scrollbar-width: thin;
-    scrollbar-color: #ff7a00 #f0f0f0;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
 }
 
 .certificate-grid-modern::-webkit-scrollbar {
@@ -1689,8 +1689,6 @@ textarea {
 }
 
 .certificate-card-modern {
-    flex: 0 0 350px;
-    /* Fixed width for horizontal scroll */
     background: #fff;
     border-radius: 20px;
     display: flex;
@@ -1700,7 +1698,6 @@ textarea {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid rgba(0, 0, 0, 0.05);
     position: relative;
-    scroll-snap-align: start;
     padding: 20px;
     gap: 15px;
 }

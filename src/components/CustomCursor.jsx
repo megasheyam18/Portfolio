@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [dotPosition, setDotPosition] = useState({ x: 0, y: 0 });
@@ -8,7 +7,6 @@ function CustomCursor() {
   useEffect(() => {
     // Only run on desktop
     if (window.innerWidth < 1024) return;
-
     let mouseX = 0;
     let mouseY = 0;
     let cursorX = 0;

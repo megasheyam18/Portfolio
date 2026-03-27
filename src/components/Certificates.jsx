@@ -1,5 +1,16 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
 import certificatesData from "../data/certificates.json";
+import {
+  FaGithub,
+  FaDatabase,
+  FaRobot,
+  FaChalkboardUser,
+  FaLeaf,
+  FaCode,
+  FaFileLines,
+  FaBriefcase,
+  FaCertificate,
+} from "react-icons/fa";
 
 function Certificates({ onOpenModal }) {
   const handleCertificateClick = (cert) => {
@@ -11,11 +22,24 @@ function Certificates({ onOpenModal }) {
     }
   };
 
-  const getIconClass = (icon) => {
-    if (icon.startsWith("fa-brands")) return icon;
-    if (icon.startsWith("fa-solid")) return icon;
-    return `fa-regular ${icon}`;
+  // Icon mapping for react-icons
+  const getIcon = (iconName) => {
+    const iconMap = {
+      "fa-github": <FaGithub />,
+      "fa-server": <FaDatabase />,
+      "fa-robot": <FaRobot />,
+      "fa-person-chalkboard": <FaChalkboardUser />,
+      "fa-leaf": <FaLeaf />,
+      "fa-code": <FaCode />,
+      "fa-file-lines": <FaFileLines />,
+      "fa-briefcase": <FaBriefcase />,
+      "fa-certificate": <FaCertificate />,
+    };
+    return iconMap[iconName] || <FaCertificate />;
   };
+
+  // Show only first 4 certificates
+  const displayCertificates = certificatesData.certificates.slice(0, 4);
 
   return (
     <section
@@ -31,7 +55,7 @@ function Certificates({ onOpenModal }) {
       </div>
 
       <div className="certificate-grid-modern">
-        {certificatesData.certificates.map((cert, index) => (
+        {displayCertificates.map((cert, index) => (
           <div
             key={cert.id}
             className="certificate-card-modern"
@@ -46,10 +70,9 @@ function Certificates({ onOpenModal }) {
                 <p className="cert-platform-new">{cert.organization}</p>
               </div>
               <div className="cert-icon-container">
-                <i
-                  className={`fa-solid ${cert.icon}`}
-                  style={{ color: cert.iconColor }}
-                ></i>
+                <span style={{ color: cert.iconColor }}>
+                  {getIcon(cert.icon)}
+                </span>
               </div>
             </div>
             <div className="cert-image-container">
@@ -58,6 +81,15 @@ function Certificates({ onOpenModal }) {
           </div>
         ))}
       </div>
+
+      {/* See More Button */}
+      {certificatesData.certificates.length > 4 && (
+        <div className="see-more-container">
+          <Link to="/certificates" className="btn btn-see-more">
+            See More <i className="fa-solid fa-arrow-up-right-from-square"></i>
+          </Link>
+        </div>
+      )}
     </section>
   );
 }

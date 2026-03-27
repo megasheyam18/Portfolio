@@ -67,9 +67,9 @@ function Home() {
         <Hero />
       </FadeInSection>
 
-      <FadeInSection delay={200}>
+      <FadeInSection delay={100}>
         <Tools />
-      </FadeInSection>
+        </FadeInSection>
 
       <FadeInSection delay={300}>
         <About />

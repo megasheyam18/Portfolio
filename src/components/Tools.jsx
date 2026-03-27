@@ -1,10 +1,34 @@
 import toolsData from "../data/tools.json";
+import {
+  FaGithub,
+  FaDatabase,
+  FaHtml5,
+  FaCss3,
+  FaJs,
+  FaJava,
+  FaBootstrap,
+  FaCloud,
+  FaPalette,
+  FaCode,
+  FaWordpress,
+} from "react-icons/fa";
 
 function Tools() {
-  const getIconClass = (tool) => {
-    if (tool.iconType === "brand") return `fa-brands fa-${tool.icon}`;
-    if (tool.iconType === "solid") return `fa-solid fa-${tool.icon}`;
-    return `fa-regular fa-${tool.icon}`;
+  const getIcon = (tool) => {
+    const iconMap = {
+      "fa-github": <FaGithub />,
+      "fa-code": <FaCode />,
+      "fa-html5": <FaHtml5 />,
+      "fa-css3-alt": <FaCss3 />,
+      "fa-js": <FaJs />,
+      "fa-java": <FaJava />,
+      "fa-bootstrap": <FaBootstrap />,
+      "fa-database": <FaDatabase />,
+      "fa-cloud-arrow-up": <FaCloud />,
+      "fa-palette": <FaPalette />,
+      "fa-file-word": <FaWordpress />,
+    };
+    return iconMap[`fa-${tool.icon}`] || <FaCode />;
   };
 
   return (
@@ -17,9 +41,7 @@ function Tools() {
         <div className="tools-grid">
           {toolsData.tools.map((tool, index) => (
             <div key={index} className="tool-card">
-              <div className="tool-icon">
-                <i className={getIconClass(tool)}></i>
-              </div>
+              <div className="tool-icon">{getIcon(tool)}</div>
               <span className="tool-label">{tool.name}</span>
             </div>
           ))}
