@@ -1,56 +1,12 @@
 import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 function Hero() {
-  const [typedText, setTypedText] = useState("");
   const [stats, setStats] = useState({ repos: 0, leetcode: 0, techs: 0 });
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const texts = [
-    "Mega Sheyam S",
-    "Java Full Stack Developer",
-    "Backend Developer | Problem Solver",
-  ];
-
-  const textIndexRef = useRef(0);
-  const charIndexRef = useRef(0);
-  const isDeletingRef = useRef(false);
-  const typingSpeedRef = useRef(100);
-
   useEffect(() => {
     setIsLoaded(true);
-  }, []);
-
-  useEffect(() => {
-    const typeEffect = () => {
-      const currentText = texts[textIndexRef.current];
-
-      if (isDeletingRef.current) {
-        setTypedText(currentText.substring(0, charIndexRef.current - 1));
-        charIndexRef.current--;
-        typingSpeedRef.current = 60;
-      } else {
-        setTypedText(currentText.substring(0, charIndexRef.current + 1));
-        charIndexRef.current++;
-        typingSpeedRef.current = 100;
-      }
-
-      if (
-        !isDeletingRef.current &&
-        charIndexRef.current === currentText.length
-      ) {
-        isDeletingRef.current = true;
-        typingSpeedRef.current = 2500;
-      } else if (isDeletingRef.current && charIndexRef.current === 0) {
-        isDeletingRef.current = false;
-        textIndexRef.current = (textIndexRef.current + 1) % texts.length;
-        typingSpeedRef.current = 800;
-      }
-
-      setTimeout(typeEffect, typingSpeedRef.current);
-    };
-
-    const timeout = setTimeout(typeEffect, 1500);
-    return () => clearTimeout(timeout);
   }, []);
 
   useEffect(() => {
@@ -91,8 +47,21 @@ function Hero() {
       <div className="hero-center">
         <div className="badge">● AVAILABLE FOR WORK</div>
         <h1>
-          Hi, I'm <span className="typed-text">{typedText}</span>
-          <span className="typed-cursor">|</span>
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Hi, I'm Mega Sheyam S
+          </motion.span>
+          <br />
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            Java Full Stack Developer / Backend Developer
+          </motion.span>
         </h1>
         <p className="hero-desc">
           I build fast, responsive, and user-friendly web applications using
