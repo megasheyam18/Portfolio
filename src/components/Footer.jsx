@@ -50,11 +50,11 @@ function Footer() {
           <div className="footer-links">
             <div className="footer-column">
               <h4>Sitemap</h4>
-              <Link to="/home">Home</Link>
-              <Link to="/about">About</Link>
-              <Link to="/project">Projects</Link>
+              <Link to="/">Home</Link>
+              <Link to="/#about">About</Link>
+              <Link to="/projects">Projects</Link>
               <Link to="/certificates">Certifications</Link>
-              <Link to="/contact">Contact</Link>
+              <Link to="/#contact">Contact</Link>
             </div>
 
             <div className="footer-column">

@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link, useParams, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import projectsData from "../data/projects.json";
 import CustomCursor from "../components/CustomCursor";
 
 function Projects() {
-  const { projectId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
   const [showDetail, setShowDetail] = useState(false);

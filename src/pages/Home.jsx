@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import FloatingSocials from "../components/FloatingSocials";
 import Hero from "../components/Hero";
@@ -21,20 +20,6 @@ function Home() {
   const [modalData, setModalData] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const location = useLocation();
-
-  // Handle scroll to section on page load if hash is present
-  useEffect(() => {
-    if (location.hash) {
-      const targetId = location.hash.substring(1);
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        setTimeout(() => {
-          targetElement.scrollIntoView({ behavior: "smooth" });
-        }, 100);
-      }
-    }
-  }, [location]);
 
   const handleOpenModal = (pdf, title, organization) => {
     const certImage = `/assets/Cerfectiate/${title.toLowerCase().replace(/\s+/g, "-")}.png`;
@@ -69,7 +54,7 @@ function Home() {
 
       <FadeInSection delay={100}>
         <Tools />
-        </FadeInSection>
+      </FadeInSection>
 
       <FadeInSection delay={300}>
         <About />

@@ -106,7 +106,7 @@ function Hero() {
             <div className="avatar-container">
               <div className="avatar-wrapper">
                 <div className="avatar-front">
-                  <img src="assets/photo.jpg" alt="Mega Shyam" />
+                  <img src="/assets/photo.jpg" alt="Mega Shyam" />
                 </div>
                 <div className="avatar-back">
                   <span className="back-text">Technology Leads the World</span>
@@ -143,7 +143,7 @@ function Hero() {
         </div>
 
         <a
-          href="assets/Final_resume.pdf"
+          href="/assets/Final_resume.pdf"
           download="Mega_Shyam_Resume.pdf"
           className="btn-download-resume"
         >

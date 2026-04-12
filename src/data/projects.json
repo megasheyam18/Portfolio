@@ -11,12 +11,12 @@
         "Custom CSS animations for seamless transitions",
         "Optimized asset loading and performance focus"
       ],
-      "heroImage": "assets/swiggy_cover_new.png",
+      "heroImage": "/assets/Swiggy/swiggy_cover_new.png",
       "gallery": [
-        "assets/swiggy_extra_1.png",
-        "assets/swiggy_extra_2.png",
-        "assets/swiggy_extra_3.png",
-        "assets/swiggy_extra_4.png"
+        "/assets/Swiggy/swiggy_extra_1.png",
+        "/assets/Swiggy/swiggy_extra_2.png",
+        "/assets/Swiggy/swiggy_extra_3.png",
+        "/assets/Swiggy/swiggy_extra_4.png"
       ],
       "tags": ["UI Clone", "Frontend", "HTML", "CSS", "JS"],
       "techStack": ["HTML5", "CSS3", "JavaScript", "Font Awesome", "Responsive Design"],
@@ -33,12 +33,12 @@
         "Glassmorphism effects on navigation and cards",
         "Mobile-first responsive architecture"
       ],
-      "heroImage": "assets/zaaroz_cover_new.png",
+      "heroImage": "/assets/Zaaror/zaaroz_cover_new.png",
       "gallery": [
-        "assets/zaaroz_extra_1.png",
-        "assets/zaaroz_extra_2.png",
-        "assets/zaaroz_extra_3.png",
-        "assets/zaaroz_extra_4.png"
+        "/assets/Zaaror/zaaroz_extra_1.png",
+        "/assets/Zaaror/zaaroz_extra_2.png",
+        "/assets/Zaaror/zaaroz_extra_3.png",
+        "/assets/Zaaror/zaaroz_extra_4.png"
       ],
       "tags": ["UI Clone", "Frontend", "Responsive"],
       "techStack": ["HTML5", "CSS3 (Flex/Grid)", "Mobile First", "Asset Optimization"],
@@ -55,10 +55,10 @@
         "Inuititive dashboard for scheme tracking",
         "Inclusive accessibility-focused design"
       ],
-      "heroImage": "assets/smart_scheme_cover_new.jpg",
+      "heroImage": "/assets/Government-scheme/smart_scheme_cover_new.jpg",
       "gallery": [
-        "assets/smart_scheme_extra_1.jpg",
-        "assets/smart_scheme_extra_2.jpg"
+        "/assets/Government-scheme/smart_scheme_extra_1.jpg",
+        "/assets/Government-scheme/smart_scheme_extra_2.jpg"
       ],
       "tags": ["Gov Project", "ML", "Web App"],
       "techStack": ["Machine Learning", "Web App Architecture", "Data Management", "Citizen-Centric Design"],

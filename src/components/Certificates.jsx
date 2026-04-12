@@ -4,10 +4,8 @@ import {
   FaGithub,
   FaDatabase,
   FaRobot,
-  FaChalkboardUser,
   FaLeaf,
   FaCode,
-  FaFileLines,
   FaBriefcase,
   FaCertificate,
 } from "react-icons/fa";
@@ -28,10 +26,10 @@ function Certificates({ onOpenModal }) {
       "fa-github": <FaGithub />,
       "fa-server": <FaDatabase />,
       "fa-robot": <FaRobot />,
-      "fa-person-chalkboard": <FaChalkboardUser />,
+      "fa-person-chalkboard": <FaRobot />,
       "fa-leaf": <FaLeaf />,
       "fa-code": <FaCode />,
-      "fa-file-lines": <FaFileLines />,
+      "fa-file-lines": <FaRobot />,
       "fa-briefcase": <FaBriefcase />,
       "fa-certificate": <FaCertificate />,
     };

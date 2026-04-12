@@ -581,6 +581,33 @@ body {
     gap: 60px;
 }
 
+.hero-center {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-center h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero-center .hero-desc {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.hero-visuals {
+    flex: 1;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .badge {
     background-color: #d8f3f5;
     color: #0d8a95;
@@ -1324,20 +1351,22 @@ textarea {
 /* Responsive */
 @media (max-width: 1024px) {
     .hero h1 {
-        font-size: 4rem;
+        font-size: 2.5rem;
     }
 
     .hero {
         flex-direction: column;
+        padding: 40px 20px;
     }
 
-    .hero-content {
-        width: 100%;
+    .hero-center {
+        max-width: 100%;
         text-align: center;
     }
 
     .hero-visuals {
-        width: 100%;
+        max-width: 100%;
+        align-items: center;
     }
 
     .services {
@@ -2532,6 +2561,14 @@ textarea {
         height: 40px;
         font-size: 1rem;
     }
+    
+    .hero-center h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-center .hero-desc {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -2574,6 +2611,14 @@ textarea {
         height: 36px;
         font-size: 0.9rem;
     }
+    
+    .hero-center h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-center .hero-desc {
+        font-size: 0.95rem;
+    }
 }
 
 /* Responsive Profile Image */
@@ -2587,5 +2632,166 @@ textarea {
     .avatar-back .back-text {
         font-size: 0.9rem !important;
         padding: 10px !important;
+    }
+    
+    .hero-center h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-center .hero-desc {
+        font-size: 1rem;
+    }
+    
+    .learning-section {
+        padding: 15px;
+    }
+    
+    .learning-title {
+        font-size: 0.9rem;
+    }
+    
+    .learning-tag {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+    
+    .btn-download-resume {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .badge {
+        font-size: 0.75rem;
+        padding: 6px 15px;
+    }
+    
+    .avatar-stats {
+        padding: 12px 15px;
+        gap: 8px;
+    }
+    
+    .stat-number-large {
+        font-size: 1.5rem;
+    }
+    
+    .stat-label-small {
+        font-size: 0.6rem;
+    }
+    
+    .profile-card {
+        max-width: 100%;
+    }
+    
+    .hero-visuals {
+        align-items: center;
+    }
+    
+    .hero-center {
+        text-align: center;
+    }
+    
+    .hero {
+        gap: 40px;
+    }
+    
+    .hero-center h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-center .hero-desc {
+        font-size: 0.95rem;
+    }
+    
+    .learning-tags {
+        justify-content: center;
+    }
+    
+    .btn-download-resume {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hero-center {
+        padding: 0 10px;
+    }
+    
+    .hero-visuals {
+        padding: 0 10px;
+    }
+    
+    .hero {
+        min-height: auto;
+        padding: 60px 0;
+    }
+    
+    .hero-center h1 {
+        font-size: 1.6rem;
+    }
+    
+    .hero-center .hero-desc {
+        font-size: 0.9rem;
+    }
+    
+    .learning-section {
+        margin-top: 0;
+    }
+    
+    .profile-card {
+        margin: 0 auto;
+    }
+    
+    .avatar-stats {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .stat-mini {
+        min-width: 80px;
+    }
+    
+    .stat-label-small {
+        font-size: 0.65rem;
+    }
+    
+    .stat-number-large {
+        font-size: 1.3rem;
+    }
+    
+    .badge {
+        font-size: 0.7rem;
+        padding: 5px 12px;
+    }
+    
+    .hero-center {
+        padding: 0 5px;
+    }
+    
+    .hero-visuals {
+        padding: 0 5px;
+    }
+    
+    .hero {
+        gap: 30px;
+    }
+    
+    .hero-center h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-center .hero-desc {
+        font-size: 0.85rem;
+    }
+    
+    .learning-section {
+        padding: 12px;
+    }
+    
+    .learning-title {
+        font-size: 0.85rem;
+    }
+    
+    .learning-tag {
+        padding: 5px 10px;
+        font-size: 0.7rem;
     }
 }
