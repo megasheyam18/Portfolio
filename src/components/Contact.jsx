@@ -5,6 +5,7 @@ function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -28,8 +29,20 @@ function Contact() {
     e.preventDefault();
 
     // Validation
-    if (!formData.name || !formData.email || !formData.message) {
-      showToast("Please fill in all fields", true);
+    if (!formData.name.trim()) {
+      showToast("Please enter your name", true);
+      return;
+    }
+    if (!formData.email.trim()) {
+      showToast("Please enter your email", true);
+      return;
+    }
+    if (!formData.subject.trim()) {
+      showToast("Please enter a subject", true);
+      return;
+    }
+    if (!formData.message.trim()) {
+      showToast("Please enter your message", true);
       return;
     }
 
@@ -40,48 +53,77 @@ function Contact() {
       return;
     }
 
+    // Message length validation
+    if (formData.message.trim().length < 10) {
+      showToast("Please provide a message with at least 10 characters", true);
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-      // EmailJS configuration
-      // Replace these with your actual EmailJS credentials from https://www.emailjs.com/
-      const serviceId = "service_portfolio"; // Your EmailJS service ID
-      const templateId = "template_contact"; // Your EmailJS template ID
-      const publicKey = "YOUR_PUBLIC_KEY"; // Your EmailJS public key
+      // EmailJS configuration using environment variables
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-      // Check if EmailJS is configured
-      if (publicKey === "YOUR_PUBLIC_KEY") {
-        // Fallback: Open email client with mailto
-        const subject = encodeURIComponent(
-          `Portfolio Contact from ${formData.name}`,
-        );
-        const body = encodeURIComponent(
-          `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`,
-        );
-        const mailtoLink = `mailto:megashyam@gmail.com?subject=${subject}&body=${body}`;
+      // Debug logging
+      console.log("EmailJS Config:", {
+        serviceId: serviceId ? "SET" : "MISSING",
+        templateId: templateId ? "SET" : "MISSING",
+        publicKey: publicKey ? "SET" : "MISSING",
+      });
 
-        window.open(mailtoLink, "_blank");
-        showToast("Opening your email client to send the message...");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        // Send email using EmailJS
-        const templateParams = {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_name: "Mega Shyam S",
-        };
-
-        await emailjs.send(serviceId, templateId, templateParams, publicKey);
-        showToast("Message sent successfully! I will get back to you soon.");
-        setFormData({ name: "", email: "", message: "" });
+      if (!serviceId || !templateId || !publicKey ||
+          serviceId === "service_your_actual_service_id" ||
+          templateId === "template_your_actual_template_id" ||
+          publicKey === "your_actual_public_key") {
+        throw new Error("EmailJS configuration is incomplete. Please check your environment variables and EmailJS dashboard.");
       }
+
+      // Initialize EmailJS with public key
+      emailjs.init(publicKey);
+
+      // Prepare template parameters
+      const templateParams = {
+        from_name: formData.name.trim(),
+        from_email: formData.email.trim(),
+        subject: formData.subject.trim(),
+        message: formData.message.trim(),
+        to_name: "Mega Shyam S",
+        submission_time: new Date().toLocaleString(),
+        reply_to: formData.email.trim(),
+      };
+
+      console.log("Sending email with params:", {
+        serviceId,
+        templateId,
+        templateParams: { ...templateParams, message: templateParams.message.substring(0, 50) + "..." }
+      });
+
+      // Send email using EmailJS
+      const result = await emailjs.send(serviceId, templateId, templateParams);
+
+      console.log("EmailJS Success:", result);
+
+      showToast("Message sent successfully! I will get back to you soon.");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+
     } catch (error) {
       console.error("EmailJS Error:", error);
-      showToast(
-        "Failed to send message. Please try again or email me directly at megashyam@gmail.com",
-        true,
-      );
+
+      // Detailed error handling
+      let errorMessage = "Failed to send message. Please try again later.";
+
+      if (error.message.includes("configuration")) {
+        errorMessage = "Email service is not configured. Please check EMAILJS_SETUP.md for setup instructions.";
+      } else if (error.text) {
+        errorMessage = `Email service error: ${error.text}`;
+      } else if (error.message.includes("Invalid")) {
+        errorMessage = "Invalid email service configuration. Please check your credentials.";
+      }
+
+      showToast(errorMessage, true);
     } finally {
       setIsSubmitting(false);
     }
@@ -138,6 +180,15 @@ function Contact() {
               required
             />
           </div>
+          <input
+            type="text"
+            id="contactSubject"
+            name="subject"
+            placeholder="Subject (e.g., Portfolio Requirement, Project Inquiry)"
+            value={formData.subject}
+            onChange={handleChange}
+            required
+          />
           <textarea
             id="contactMessage"
             name="message"

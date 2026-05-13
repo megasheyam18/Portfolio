@@ -3,32 +3,34 @@ import {
   FaGithub,
   FaDatabase,
   FaHtml5,
-  FaCss3,
+  FaCss3Alt,
   FaJs,
   FaJava,
   FaBootstrap,
-  FaCloud,
+  FaCloudUploadAlt,
   FaPalette,
   FaCode,
-  FaWordpress,
+  FaFileWord,
 } from "react-icons/fa";
+import { VscCode } from "react-icons/vsc";
+import { SiVercel, SiCanva } from "react-icons/si";
 
 function Tools() {
   const getIcon = (tool) => {
     const iconMap = {
       "fa-github": <FaGithub />,
-      "fa-code": <FaCode />,
+      "fa-code": <VscCode />, // VS Code
       "fa-html5": <FaHtml5 />,
-      "fa-css3-alt": <FaCss3 />,
+      "fa-css3-alt": <FaCss3Alt />,
       "fa-js": <FaJs />,
       "fa-java": <FaJava />,
       "fa-bootstrap": <FaBootstrap />,
       "fa-database": <FaDatabase />,
-      "fa-cloud-arrow-up": <FaCloud />,
-      "fa-palette": <FaPalette />,
-      "fa-file-word": <FaWordpress />,
+      "fa-cloud-arrow-up": <SiVercel />, // Vercel
+      "fa-palette": <SiCanva />, // Canva
+      "fa-file-word": <FaFileWord />, // MS Office
     };
-    return iconMap[`fa-${tool.icon}`] || <FaCode />;
+    return iconMap[tool.icon] || <FaCode />;
   };
 
   return (

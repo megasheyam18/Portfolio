@@ -36,8 +36,8 @@ function Certificates({ onOpenModal }) {
     return iconMap[iconName] || <FaCertificate />;
   };
 
-  // Show only first 4 certificates
-  const displayCertificates = certificatesData.certificates.slice(0, 4);
+  // Show only first 3 certificates
+  const displayCertificates = certificatesData.certificates.slice(0, 3);
 
   return (
     <section
@@ -74,14 +74,21 @@ function Certificates({ onOpenModal }) {
               </div>
             </div>
             <div className="cert-image-container">
-              <img src={cert.image} alt={`${cert.title} Certificate`} />
+              <img
+                src={cert.image}
+                alt={`${cert.title} Certificate`}
+                loading="lazy"
+                onError={(e) => {
+                  e.target.src = "/assets/Certificate/fallback.png"; // Add fallback image
+                }}
+              />
             </div>
           </div>
         ))}
       </div>
 
       {/* See More Button */}
-      {certificatesData.certificates.length > 4 && (
+      {certificatesData.certificates.length > 3 && (
         <div className="see-more-container">
           <Link to="/certificates" className="btn btn-see-more">
             See More <i className="fa-solid fa-arrow-up-right-from-square"></i>

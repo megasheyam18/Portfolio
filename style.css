@@ -351,7 +351,7 @@ body {
 /* About Section */
 .about-section {
   padding: 80px 20px;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 
 .about-content {
@@ -1311,7 +1311,7 @@ textarea {
 /* Responsive */
 @media (max-width: 1024px) {
     .hero h1 {
-        font-size: 4rem;
+        font-size: 3.5rem;
     }
 
     .hero {
@@ -1325,6 +1325,18 @@ textarea {
 
     .hero-visuals {
         width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero h1 {
+            font-size: 2rem;
+        }
     }
 
     .services {
@@ -1453,14 +1465,19 @@ textarea {
 }
 
 .tool-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    background-color: #ff7a00;
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  background-color: #ff7a00;
 }
 
 .tool-icon {
-    font-size: 2.5rem;
-    color: var(--teal-color);
+  font-size: 2.5rem;
+  color: var(--teal-color);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tool-label {

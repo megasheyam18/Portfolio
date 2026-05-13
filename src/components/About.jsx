@@ -9,7 +9,7 @@ function About() {
 
   return (
     <section id="about" className="about-section container">
-      <div className="section-header-work">
+      <div className="section-header">
         <h2>About Me</h2>
         <p style={{ marginTop: "10px", color: "#666" }}>
           Get to know me better

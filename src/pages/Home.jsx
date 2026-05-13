@@ -22,7 +22,7 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleOpenModal = (pdf, title, organization) => {
-    const certImage = `/assets/Cerfectiate/${title.toLowerCase().replace(/\s+/g, "-")}.png`;
+    const certImage = `/assets/Certificate/${title.toLowerCase().replace(/\s+/g, "-")}.png`;
     setModalData({ image: certImage, title, organization, pdf });
     setIsModalOpen(true);
   };

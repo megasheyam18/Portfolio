@@ -3,36 +3,9 @@ import { motion } from "framer-motion";
 
 function Hero() {
   const [stats, setStats] = useState({ repos: 0, leetcode: 0, techs: 0 });
-  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true);
-  }, []);
-
-  useEffect(() => {
-    // Animate stats counters
-    const duration = 2000;
-    const targets = { repos: 12, leetcode: 150, techs: 8 };
-    const startTime = Date.now();
-
-    const animateCounters = () => {
-      const elapsed = Date.now() - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-
-      setStats({
-        repos: Math.floor(targets.repos * progress),
-        leetcode: Math.floor(targets.leetcode * progress),
-        techs: Math.floor(targets.techs * progress),
-      });
-
-      if (progress < 1) {
-        requestAnimationFrame(animateCounters);
-      } else {
-        setStats(targets);
-      }
-    };
-
-    setTimeout(animateCounters, 500);
+    setStats({ repos: 12, leetcode: 150, techs: 8 });
   }, []);
 
   const learningTags = [
@@ -44,80 +17,87 @@ function Hero() {
 
   return (
     <section id="home" className="hero container">
-      <div className="hero-center">
-        <div className="badge">● AVAILABLE FOR WORK</div>
-        <h1>
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            Hi, I'm Mega Sheyam S
-          </motion.span>
-          <br />
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            Java Full Stack Developer / Backend Developer
-          </motion.span>
-        </h1>
-        <p className="hero-desc">
-          I build fast, responsive, and user-friendly web applications using
-          modern technologies. Passionate about clean UI, performance
-          optimization, and scalable solutions.
-        </p>
-      </div>
-      <div className="hero-visuals">
-        <div className="profile-card">
-          <div className="profile-image">
-            <div className="avatar-container">
-              <div className="avatar-wrapper">
-                <div className="avatar-front">
-                  <img src="/assets/photo.jpg" alt="Mega Shyam" />
-                </div>
-                <div className="avatar-back">
-                  <span className="back-text">Technology Leads the World</span>
-                </div>
-              </div>
+      <div className="hero-content">
+        <div className="hero-text">
+          <div className="badge">● AVAILABLE FOR WORK</div>
+          <h1>
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              Hi, I'm Mega Sheyam S
+            </motion.span>
+          </h1>
+          <h2 className="hero-role">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Java Full Stack Developer / Backend Developer
+            </motion.span>
+          </h2>
+          <p className="hero-desc">
+            I build fast, responsive, and user-friendly web applications using
+            modern technologies. Passionate about clean UI, performance
+            optimization, and scalable solutions.
+          </p>
+          <div className="hero-ctas">
+            <a href="#contact" className="btn btn-primary">Hire Me</a>
+            <a href="#projects" className="btn btn-secondary">View Projects</a>
+          </div>
+          <div className="hero-stats">
+            <div className="stat-item">
+              <span className="stat-number">{stats.repos}</span>
+              <span className="stat-label">Repositories</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">{stats.leetcode}</span>
+              <span className="stat-label">Problems Solved</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">{stats.techs}</span>
+              <span className="stat-label">Technologies</span>
             </div>
           </div>
-
-          <div className="avatar-stats">
-            <div className="stat-mini">
-              <span className="stat-number-large">{stats.repos}</span>
-              <span className="stat-label-small">Repositories | </span>
+          <div className="learning-section">
+            <h3 className="learning-title">Currently Learning</h3>
+            <div className="learning-tags">
+              {learningTags.map((tag, index) => (
+                <span key={index} className="learning-tag">
+                  {tag}
+                </span>
+              ))}
             </div>
-            <div className="stat-mini">
-              <span className="stat-number-large">{stats.leetcode}</span>
-              <span className="stat-label-small">LeetCode Problems |</span>
-            </div>
-            <div className="stat-mini">
-              <span className="stat-number-large">{stats.techs}</span>
-              <span className="stat-label-small">Technologies |</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="learning-section">
-          <h3 className="learning-title">Currently Learning</h3>
-          <div className="learning-tags">
-            {learningTags.map((tag, index) => (
-              <span key={index} className="learning-tag">
-                {tag}
-              </span>
-            ))}
           </div>
         </div>
-
-        <a
-          href="/assets/Final_resume.pdf"
-          download="Mega_Shyam_Resume.pdf"
-          className="btn-download-resume"
-        >
-          Download Resume <i className="fa-solid fa-file-arrow-down"></i>
-        </a>
+        <div className="hero-illustration">
+          <svg
+            viewBox="0 0 500 500"
+            xmlns="http://www.w3.org/2000/svg"
+            className="developer-illustration"
+          >
+            {/* Developer Illustration SVG */}
+            <defs>
+              <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{ stopColor: '#667eea', stopOpacity: 1 }} />
+                <stop offset="100%" style={{ stopColor: '#764ba2', stopOpacity: 1 }} />
+              </linearGradient>
+            </defs>
+            <rect width="500" height="500" fill="url(#bg)" rx="20" />
+            {/* Simple developer icon */}
+            <circle cx="250" cy="180" r="60" fill="#fff" />
+            <rect x="220" y="240" width="60" height="80" fill="#fff" rx="10" />
+            <rect x="200" y="280" width="20" height="40" fill="#fff" rx="5" />
+            <rect x="280" y="280" width="20" height="40" fill="#fff" rx="5" />
+            <rect x="240" y="320" width="20" height="40" fill="#fff" rx="5" />
+            {/* Laptop */}
+            <rect x="150" y="350" width="200" height="120" fill="#fff" rx="10" />
+            <rect x="160" y="360" width="180" height="80" fill="#333" rx="5" />
+            <circle cx="250" cy="450" r="15" fill="#fff" />
+          </svg>
+        </div>
       </div>
     </section>
   );

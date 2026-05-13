@@ -167,6 +167,10 @@ function CertificatesPage() {
                       height: "100%",
                       objectFit: "cover",
                     }}
+                    loading="lazy"
+                    onError={(e) => {
+                      e.target.src = "/assets/Certificate/fallback.png";
+                    }}
                   />
                 </div>
               </div>
